@@ -2,6 +2,7 @@ using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.AI;
+using Verse.Sound;
 
 namespace SmallTrailerFramework.ExamplePlugin
 {
@@ -29,7 +30,11 @@ namespace SmallTrailerFramework.ExamplePlugin
                 highlightAction: target => DrawDeployGhost(buildingDef, pawn.Map, target.Cell, placingRot),
                 targetValidator: target => CanDeployAt(buildingDef, pawn.Map, target.Cell, placingRot).Accepted,
                 mouseAttachment: TexCommand.Install,
-                onGuiAction: target => DrawDeployMouseAttachments(buildingDef, pawn.Map, target.Cell, placingRot),
+                onGuiAction: target =>
+                {
+                    UpdateRotation();
+                    DrawDeployMouseAttachments(buildingDef, pawn.Map, target.Cell, placingRot);
+                },
                 onUpdateAction: target => UpdateRotation());
         }
 
@@ -75,9 +80,17 @@ namespace SmallTrailerFramework.ExamplePlugin
         private static void DrawDeployMouseAttachments(ThingDef buildingDef, Map map, IntVec3 cell, Rot4 rot)
         {
             AcceptanceReport report = CanDeployAt(buildingDef, map, cell, rot);
+            string rotateText = "STF_DeployRotateHint".Translate(
+                KeyBindingDefOf.Designator_RotateLeft.MainKeyLabel,
+                KeyBindingDefOf.Designator_RotateRight.MainKeyLabel,
+                rot.ToStringHuman());
             if (!report.Accepted && !report.Reason.NullOrEmpty())
             {
-                GenUI.DrawMouseAttachment(TexCommand.CannotShoot, report.Reason);
+                GenUI.DrawMouseAttachment(TexCommand.CannotShoot, report.Reason + "\n" + rotateText);
+            }
+            else
+            {
+                GenUI.DrawMouseAttachment(TexCommand.Install, rotateText);
             }
         }
 
@@ -86,10 +99,12 @@ namespace SmallTrailerFramework.ExamplePlugin
             if (KeyBindingDefOf.Designator_RotateRight.KeyDownEvent)
             {
                 placingRot.Rotate(RotationDirection.Clockwise);
+                SoundDefOf.Tick_High.PlayOneShotOnCamera();
             }
             if (KeyBindingDefOf.Designator_RotateLeft.KeyDownEvent)
             {
                 placingRot.Rotate(RotationDirection.Counterclockwise);
+                SoundDefOf.Tick_Low.PlayOneShotOnCamera();
             }
         }
     }

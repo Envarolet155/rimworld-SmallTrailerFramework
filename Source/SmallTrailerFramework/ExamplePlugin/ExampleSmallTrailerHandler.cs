@@ -128,6 +128,7 @@ namespace SmallTrailerFramework.ExamplePlugin
                     unit.AdoptState(state);
                     return SmallTrailerResult.Fail(report.Reason.NullOrEmpty() ? "STF_FailPlaceBuilding".Translate() : report.Reason);
                 }
+                building.SetFactionDirect(Faction.OfPlayer);
                 GenSpawn.Spawn(building, targetCell, targetMap, rot);
                 placed = true;
             }
