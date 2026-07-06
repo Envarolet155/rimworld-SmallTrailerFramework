@@ -237,7 +237,20 @@ namespace SmallTrailerFramework.ExamplePlugin
             Vector3 offset = rot.FacingCell.ToVector3() * -0.72f;
             Vector3 loc = pawn.DrawPos + offset;
             loc.y = AltitudeLayer.Item.AltitudeFor();
-            trailer.Graphic.Draw(loc, rot, trailer);
+            trailer.Graphic.Draw(loc, DrawRotForPawn(rot), trailer);
+        }
+
+        private static Rot4 DrawRotForPawn(Rot4 pawnRot)
+        {
+            if (pawnRot == Rot4.East)
+            {
+                return Rot4.West;
+            }
+            if (pawnRot == Rot4.West)
+            {
+                return Rot4.East;
+            }
+            return pawnRot;
         }
     }
 }
