@@ -46,6 +46,11 @@ namespace SmallTrailerFramework
         IEnumerable<Gizmo> GetGizmos(CompSmallTrailerUnit unit);
     }
 
+    public interface ISmallTrailerAttachGizmoProvider
+    {
+        IEnumerable<Gizmo> GetAttachGizmos(CompSmallTrailerUnit unit);
+    }
+
     public sealed class SmallTrailerDefaultSpeedWorker : ISmallTrailerSpeedWorker
     {
         public string Key => "SmallTrailerFramework.Default";

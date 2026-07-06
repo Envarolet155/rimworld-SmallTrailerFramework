@@ -16,6 +16,7 @@ namespace SmallTrailerFramework
     public class CompSmallTrailerUnit : ThingComp, IThingHolder
     {
         private SmallTrailerState state;
+        private bool suppressNextContentDrop;
 
         public SmallTrailerState State
         {
@@ -47,6 +48,11 @@ namespace SmallTrailerFramework
             return released;
         }
 
+        public void SuppressNextContentDrop()
+        {
+            suppressNextContentDrop = true;
+        }
+
         public override void PostPostMake()
         {
             base.PostPostMake();
@@ -74,6 +80,24 @@ namespace SmallTrailerFramework
             State.lastMapTile = parent.Map?.Tile ?? -1;
             State.lastCell = parent.Position;
             SmallTrailerGameComponent.Current?.Register(State);
+        }
+
+        public override void PostDeSpawn(Map map, DestroyMode mode = DestroyMode.Vanish)
+        {
+            base.PostDeSpawn(map, mode);
+            if (mode != DestroyMode.Vanish)
+            {
+                DropContentsIfNeeded(map, parent.PositionHeld);
+            }
+        }
+
+        public override void PostDestroy(DestroyMode mode, Map previousMap)
+        {
+            base.PostDestroy(mode, previousMap);
+            if (mode != DestroyMode.Vanish)
+            {
+                DropContentsIfNeeded(previousMap, parent.PositionHeld);
+            }
         }
 
         public override void CompTick()
@@ -137,6 +161,34 @@ namespace SmallTrailerFramework
         public void GetChildHolders(List<IThingHolder> outChildren)
         {
             ThingOwnerUtility.AppendThingHoldersFromThings(outChildren, GetDirectlyHeldThings());
+        }
+
+        private void DropContentsIfNeeded(Map map, IntVec3 cell)
+        {
+            if (suppressNextContentDrop)
+            {
+                suppressNextContentDrop = false;
+                return;
+            }
+            if (State.InnerContainer.Count == 0)
+            {
+                return;
+            }
+
+            Pawn holder = SmallTrailerUtility.FindHoldingPawn(parent);
+            map = map ?? holder?.MapHeld ?? parent.MapHeld;
+            if (!cell.IsValid)
+            {
+                cell = holder?.PositionHeld ?? parent.PositionHeld;
+            }
+            if (map == null || !cell.IsValid)
+            {
+                return;
+            }
+
+            State.InnerContainer.TryDropAll(cell, map, ThingPlaceMode.Near);
+            State.SnapshotManifest();
+            SmallTrailerGameComponent.Current?.Register(State);
         }
     }
 }

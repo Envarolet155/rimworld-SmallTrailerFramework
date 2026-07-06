@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <WorkGiverDef>
+    <defName>STF_LoadSmallTrailer</defName>
+    <label>load small trailer</label>
+    <giverClass>SmallTrailerFramework.ExamplePlugin.WorkGiver_LoadSmallTrailer</giverClass>
+    <workType>Hauling</workType>
+    <verb>load</verb>
+    <gerund>loading small trailer</gerund>
+    <priorityInType>16</priorityInType>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+</Defs>

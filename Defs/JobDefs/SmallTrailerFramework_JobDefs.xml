@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <JobDef>
+    <defName>STF_AttachSmallTrailer</defName>
+    <driverClass>SmallTrailerFramework.ExamplePlugin.JobDriver_AttachSmallTrailer</driverClass>
+    <reportString>attaching small trailer.</reportString>
+  </JobDef>
+
+  <JobDef>
+    <defName>STF_LoadSmallTrailer</defName>
+    <driverClass>SmallTrailerFramework.ExamplePlugin.JobDriver_LoadSmallTrailer</driverClass>
+    <reportString>loading TargetA into small trailer.</reportString>
+    <suspendable>false</suspendable>
+  </JobDef>
+</Defs>

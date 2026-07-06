@@ -14,7 +14,7 @@
     <graphicData>
       <texPath>small-trailer</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(1.2,1.2)</drawSize>
+      <drawSize>(1.1,1.1)</drawSize>
     </graphicData>
     <size>(1,1)</size>
     <passability>PassThroughOnly</passability>
@@ -48,6 +48,7 @@
         <minPawns>1</minPawns>
         <maxPawns>1</maxPawns>
         <restoreRadius>3</restoreRadius>
+        <massCapacity>75</massCapacity>
         <canEnterCaravan>true</canEnterCaravan>
         <drawTexPath>small-trailer</drawTexPath>
       </li>
@@ -65,7 +66,7 @@
     <graphicData>
       <texPath>small-trailer</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(1.0,1.0)</drawSize>
+      <drawSize>(1.1,1.1)</drawSize>
     </graphicData>
     <statBases>
       <MaxHitPoints>120</MaxHitPoints>
@@ -91,6 +92,7 @@
         <minPawns>1</minPawns>
         <maxPawns>1</maxPawns>
         <restoreRadius>3</restoreRadius>
+        <massCapacity>75</massCapacity>
         <canEnterCaravan>true</canEnterCaravan>
         <drawTexPath>small-trailer</drawTexPath>
       </li>

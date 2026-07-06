@@ -43,6 +43,14 @@
       <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\CompSmallTrailerUnit.cs" />
@@ -53,12 +61,19 @@
     <Compile Include="Core\SmallTrailerState.cs" />
     <Compile Include="Core\SmallTrailerUnitDefExtension.cs" />
     <Compile Include="Core\SmallTrailerUtility.cs" />
+    <Compile Include="ExamplePlugin\Dialog_SmallTrailerLoadItems.cs" />
+    <Compile Include="ExamplePlugin\ExampleSmallTrailerGameComponent.cs" />
     <Compile Include="ExamplePlugin\ExampleSmallTrailerHandler.cs" />
+    <Compile Include="ExamplePlugin\ExampleSmallTrailerUtility.cs" />
     <Compile Include="ExamplePlugin\HediffComp_SmallTrailerTowingControl.cs" />
     <Compile Include="ExamplePlugin\Hediff_SmallTrailerTowingControl.cs" />
     <Compile Include="ExamplePlugin\ExampleSmallTrailerMapComponent.cs" />
     <Compile Include="ExamplePlugin\ExampleSmallTrailerPlugin.cs" />
+    <Compile Include="ExamplePlugin\JobDriver_AttachSmallTrailer.cs" />
+    <Compile Include="ExamplePlugin\JobDriver_LoadSmallTrailer.cs" />
+    <Compile Include="ExamplePlugin\SmallTrailerLoadPlan.cs" />
     <Compile Include="ExamplePlugin\ThinkNode_ConditionalTowingSmallTrailer.cs" />
+    <Compile Include="ExamplePlugin\WorkGiver_LoadSmallTrailer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

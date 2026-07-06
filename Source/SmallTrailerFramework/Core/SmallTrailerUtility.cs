@@ -13,6 +13,15 @@ namespace SmallTrailerFramework
         {
             if (unit.parent.def.category == ThingCategory.Building)
             {
+                if (handler is ISmallTrailerAttachGizmoProvider attachGizmoProvider)
+                {
+                    foreach (Gizmo gizmo in attachGizmoProvider.GetAttachGizmos(unit))
+                    {
+                        yield return gizmo;
+                    }
+                    yield break;
+                }
+
                 yield return new Command_Action
                 {
                     defaultLabel = "STF_CommandAttach".Translate(),

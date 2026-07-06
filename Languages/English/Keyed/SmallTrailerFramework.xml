@@ -2,15 +2,15 @@
 <LanguageData>
   <STF_InspectState>State: {0}; internal items: {1}</STF_InspectState>
   <STF_CommandAttach>Attach trailer</STF_CommandAttach>
-  <STF_CommandAttachDesc>Select a colonist and switch this unit into towing mode. The concrete behavior is provided by the internal example plugin.</STF_CommandAttachDesc>
+  <STF_CommandAttachDesc>Target a colonist. The pawn will walk to the trailer and attach it.</STF_CommandAttachDesc>
   <STF_CommandDetach>Detach trailer</STF_CommandDetach>
   <STF_CommandDetachDesc>Try to restore this unit as a building near the towing pawn.</STF_CommandDetachDesc>
   <STF_CommandDetachPawn>Detach trailer</STF_CommandDetachPawn>
   <STF_CommandDetachPawnDesc>Detach a towed trailer from this pawn and try to restore it as a nearby building.</STF_CommandDetachPawnDesc>
   <STF_CommandCaravanRestore>Restore inventory</STF_CommandCaravanRestore>
   <STF_CommandCaravanRestoreDesc>Best-effort restore manifest items that still exist in spawned colonist inventories.</STF_CommandCaravanRestoreDesc>
-  <STF_CommandLoadNearby>Load nearby item</STF_CommandLoadNearby>
-  <STF_CommandLoadNearbyDesc>Example plugin command: choose a nearby item and put it into the trailer state container.</STF_CommandLoadNearbyDesc>
+  <STF_CommandLoadNearby>Load trailer</STF_CommandLoadNearby>
+  <STF_CommandLoadNearbyDesc>Create a hauling list for this trailer. Colonists assigned to hauling will carry selected items to it.</STF_CommandLoadNearbyDesc>
   <STF_CommandUnloadContents>Unload contents</STF_CommandUnloadContents>
   <STF_CommandUnloadContentsDesc>Example plugin command: place the trailer container contents on nearby ground.</STF_CommandUnloadContentsDesc>
   <STF_NoHandler>Missing trailer handler</STF_NoHandler>
@@ -38,4 +38,8 @@
   <STF_FailNothingRestored>No manifest item could be restored.</STF_FailNothingRestored>
   <STF_FailInvalidItem>Invalid item.</STF_FailInvalidItem>
   <STF_FailLoadItem>Could not load that item.</STF_FailLoadItem>
+  <STF_FailMassCapacity>The trailer cannot carry that much mass.</STF_FailMassCapacity>
+  <STF_LoadDialogTitle>Load small trailer</STF_LoadDialogTitle>
+  <STF_LoadDialogMass>Mass: {0} / {1}</STF_LoadDialogMass>
+  <STF_MessageLoadPlanCreated>Small trailer loading list created.</STF_MessageLoadPlanCreated>
 </LanguageData>

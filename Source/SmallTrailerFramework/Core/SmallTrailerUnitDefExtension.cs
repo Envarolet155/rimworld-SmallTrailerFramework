@@ -12,6 +12,7 @@ namespace SmallTrailerFramework
         public int minPawns = 1;
         public int maxPawns = 1;
         public float restoreRadius = 3f;
+        public float massCapacity = 75f;
         public bool canEnterCaravan = true;
         public string drawTexPath;
     }

@@ -2,15 +2,15 @@
 <LanguageData>
   <STF_InspectState>状态：{0}；内部物品：{1}</STF_InspectState>
   <STF_CommandAttach>挂接小推车</STF_CommandAttach>
-  <STF_CommandAttachDesc>选择一名殖民者，将该单元切换到牵引态。具体实现来自内部示例插件。</STF_CommandAttachDesc>
+  <STF_CommandAttachDesc>瞄准一名殖民者，小人会走到小推车旁并挂接。</STF_CommandAttachDesc>
   <STF_CommandDetach>卸下小推车</STF_CommandDetach>
   <STF_CommandDetachDesc>在牵引者附近尝试还原为建筑态。</STF_CommandDetachDesc>
   <STF_CommandDetachPawn>卸下小推车</STF_CommandDetachPawn>
   <STF_CommandDetachPawnDesc>从当前小人身上卸下正在牵引的小推车，并在附近尝试还原为建筑态。</STF_CommandDetachPawnDesc>
   <STF_CommandCaravanRestore>尝试还原库存</STF_CommandCaravanRestore>
   <STF_CommandCaravanRestoreDesc>按远行清单从地图上殖民者库存中尽力取回仍存在的物品。</STF_CommandCaravanRestoreDesc>
-  <STF_CommandLoadNearby>装载附近物品</STF_CommandLoadNearby>
-  <STF_CommandLoadNearbyDesc>示例插件命令：选择附近物品并放入小推车内部状态容器。</STF_CommandLoadNearbyDesc>
+  <STF_CommandLoadNearby>装载小推车</STF_CommandLoadNearby>
+  <STF_CommandLoadNearbyDesc>为这辆小推车创建搬运清单。可搬运的小人会把选中的物品搬到小推车处。</STF_CommandLoadNearbyDesc>
   <STF_CommandUnloadContents>卸出内部物品</STF_CommandUnloadContents>
   <STF_CommandUnloadContentsDesc>示例插件命令：把小推车内部容器中的物品放到附近地面。</STF_CommandUnloadContentsDesc>
   <STF_NoHandler>缺少小推车处理器</STF_NoHandler>
@@ -38,4 +38,8 @@
   <STF_FailNothingRestored>没有找到可还原的清单物品。</STF_FailNothingRestored>
   <STF_FailInvalidItem>物品无效。</STF_FailInvalidItem>
   <STF_FailLoadItem>无法装载该物品。</STF_FailLoadItem>
+  <STF_FailMassCapacity>小推车无法承载这么多重量。</STF_FailMassCapacity>
+  <STF_LoadDialogTitle>装载小推车</STF_LoadDialogTitle>
+  <STF_LoadDialogMass>重量：{0} / {1}</STF_LoadDialogMass>
+  <STF_MessageLoadPlanCreated>小推车装载清单已创建。</STF_MessageLoadPlanCreated>
 </LanguageData>

@@ -4,10 +4,11 @@ using RimWorld;
 using RimWorld.Planet;
 using UnityEngine;
 using Verse;
+using Verse.AI;
 
 namespace SmallTrailerFramework.ExamplePlugin
 {
-    public class ExampleSmallTrailerHandler : ISmallTrailerModeHandler, ISmallTrailerInventoryBridge, ISmallTrailerGizmoProvider
+    public class ExampleSmallTrailerHandler : ISmallTrailerModeHandler, ISmallTrailerInventoryBridge, ISmallTrailerGizmoProvider, ISmallTrailerAttachGizmoProvider
     {
         public string Key => "SmallTrailerFramework.Example";
 
@@ -63,6 +64,7 @@ namespace SmallTrailerFramework.ExamplePlugin
 
             if (source.Spawned)
             {
+                unit.SuppressNextContentDrop();
                 source.DeSpawn(DestroyMode.Vanish);
             }
             if (!primary.inventory.innerContainer.TryAdd(packed))
@@ -112,6 +114,7 @@ namespace SmallTrailerFramework.ExamplePlugin
                 return SmallTrailerResult.Fail("STF_FailPlaceBuilding".Translate());
             }
 
+            unit.SuppressNextContentDrop();
             unit.parent.Destroy(DestroyMode.Vanish);
             SmallTrailerGameComponent.Current?.Register(state);
             return SmallTrailerResult.Success;
@@ -171,6 +174,22 @@ namespace SmallTrailerFramework.ExamplePlugin
             return restored > 0 ? SmallTrailerResult.Success : SmallTrailerResult.Fail("STF_FailNothingRestored".Translate());
         }
 
+        public IEnumerable<Gizmo> GetAttachGizmos(CompSmallTrailerUnit unit)
+        {
+            if (unit.parent.def.category != ThingCategory.Building)
+            {
+                yield break;
+            }
+
+            yield return new Command_Action
+            {
+                defaultLabel = "STF_CommandAttach".Translate(),
+                defaultDesc = "STF_CommandAttachDesc".Translate(),
+                icon = ContentFinder<Texture2D>.Get("UI/Commands/LoadTransporter", false),
+                action = () => BeginAttachTargeting(unit)
+            };
+        }
+
         public IEnumerable<Gizmo> GetGizmos(CompSmallTrailerUnit unit)
         {
             if (unit.parent.Spawned && unit.parent.def.category == ThingCategory.Building)
@@ -180,7 +199,7 @@ namespace SmallTrailerFramework.ExamplePlugin
                     defaultLabel = "STF_CommandLoadNearby".Translate(),
                     defaultDesc = "STF_CommandLoadNearbyDesc".Translate(),
                     icon = ContentFinder<Texture2D>.Get("UI/Commands/SelectAllCaravan", false),
-                    action = () => OpenNearbyItemMenu(unit)
+                    action = () => Find.WindowStack.Add(new Dialog_SmallTrailerLoadItems(unit))
                 };
             }
 
@@ -196,39 +215,41 @@ namespace SmallTrailerFramework.ExamplePlugin
             }
         }
 
-        private static void OpenNearbyItemMenu(CompSmallTrailerUnit unit)
+        private static void BeginAttachTargeting(CompSmallTrailerUnit unit)
         {
-            List<FloatMenuOption> options = unit.parent.Map.listerThings.ThingsInGroup(ThingRequestGroup.HaulableEver)
-                .Where(t => t.Spawned && t.def.category == ThingCategory.Item && t.Position.InHorDistOf(unit.parent.Position, 6f))
-                .OrderBy(t => t.Position.DistanceToSquared(unit.parent.Position))
-                .Take(30)
-                .Select(t => new FloatMenuOption(t.LabelCap, () => LoadThing(unit, t)))
-                .ToList();
-
-            if (options.Count == 0)
+            TargetingParameters parms = TargetingParameters.ForColonist();
+            Find.Targeter.BeginTargeting(parms, target =>
             {
-                options.Add(new FloatMenuOption("STF_NoNearbyItems".Translate(), null));
-            }
-            Find.WindowStack.Add(new FloatMenu(options, "STF_SelectItem".Translate()));
+                Pawn pawn = target.Thing as Pawn;
+                JobDef jobDef = ExampleSmallTrailerUtility.AttachJobDef;
+                if (pawn == null || jobDef == null || unit.parent.Map == null || pawn.Map != unit.parent.Map)
+                {
+                    Messages.Message("STF_FailInvalidPawn".Translate(), MessageTypeDefOf.RejectInput, false);
+                    return;
+                }
+                SmallTrailerResult can = CanAttachPawn(unit, pawn);
+                if (!can.Accepted)
+                {
+                    Messages.Message(can.Reason, MessageTypeDefOf.RejectInput, false);
+                    return;
+                }
+                Job job = JobMaker.MakeJob(jobDef, unit.parent);
+                job.playerForced = true;
+                pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
+            });
         }
 
-        private static void LoadThing(CompSmallTrailerUnit unit, Thing thing)
+        private static SmallTrailerResult CanAttachPawn(CompSmallTrailerUnit unit, Pawn pawn)
         {
-            if (thing == null || !thing.Spawned)
+            if (pawn == null || pawn.Dead || pawn.Downed || pawn.inventory == null)
             {
-                Messages.Message("STF_FailInvalidItem".Translate(), MessageTypeDefOf.RejectInput, false);
-                return;
+                return SmallTrailerResult.Fail("STF_FailInvalidPawn".Translate());
             }
-            thing.DeSpawn(DestroyMode.Vanish);
-            if (!unit.State.InnerContainer.TryAdd(thing))
+            if (!pawn.CanReserveAndReach(unit.parent, PathEndMode.Touch, Danger.Deadly))
             {
-                GenPlace.TryPlaceThing(thing, unit.parent.Position, unit.parent.Map, ThingPlaceMode.Near);
-                Messages.Message("STF_FailLoadItem".Translate(), MessageTypeDefOf.RejectInput, false);
-                return;
+                return SmallTrailerResult.Fail("STF_NoReachablePawn".Translate());
             }
-            unit.State.SnapshotManifest();
-            SmallTrailerGameComponent.Current?.Register(unit.State);
-            Messages.Message("STF_MessageSuccess".Translate(), MessageTypeDefOf.PositiveEvent, false);
+            return SmallTrailerResult.Success;
         }
 
         public static void UnloadContents(CompSmallTrailerUnit unit)
