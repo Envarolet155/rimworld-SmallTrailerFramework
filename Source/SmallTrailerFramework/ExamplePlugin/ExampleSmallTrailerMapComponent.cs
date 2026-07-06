@@ -256,11 +256,11 @@ namespace SmallTrailerFramework.ExamplePlugin
         {
             if (pawnRot == Rot4.North)
             {
-                return new Vector3(0f, 0f, 1.18f);
+                return new Vector3(0f, 0f, -1.18f);
             }
             if (pawnRot == Rot4.South)
             {
-                return new Vector3(0f, 0f, -1.18f);
+                return new Vector3(0f, 0f, 1.18f);
             }
             return pawnRot.FacingCell.ToVector3() * -0.72f;
         }
