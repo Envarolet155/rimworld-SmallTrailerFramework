@@ -46,4 +46,6 @@
   <STF_TabContentsContained>Stored items</STF_TabContentsContained>
   <STF_StatsContentsMass>Small trailer contents: {0}</STF_StatsContentsMass>
   <STF_StatsTowedTrailerCapacity>Towed small trailer capacity: {0}</STF_StatsTowedTrailerCapacity>
+  <STF_CaravanMassCapacitySource>Small trailer pulled by {0}</STF_CaravanMassCapacitySource>
+  <STF_CaravanSpeedFactor>Small trailer efficiency: {0}</STF_CaravanSpeedFactor>
 </LanguageData>

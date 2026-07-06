@@ -47,7 +47,7 @@
         <packedThingDef>STF_SmallTrailerPacked</packedThingDef>
         <handlerKey>SmallTrailerFramework.Example</handlerKey>
         <inventoryBridgeKey>SmallTrailerFramework.Example</inventoryBridgeKey>
-        <speedWorkerKey>SmallTrailerFramework.Default</speedWorkerKey>
+        <speedWorkerKey>SmallTrailerFramework.Example</speedWorkerKey>
         <minPawns>1</minPawns>
         <maxPawns>1</maxPawns>
         <restoreRadius>3</restoreRadius>
@@ -91,7 +91,7 @@
         <packedThingDef>STF_SmallTrailerPacked</packedThingDef>
         <handlerKey>SmallTrailerFramework.Example</handlerKey>
         <inventoryBridgeKey>SmallTrailerFramework.Example</inventoryBridgeKey>
-        <speedWorkerKey>SmallTrailerFramework.Default</speedWorkerKey>
+        <speedWorkerKey>SmallTrailerFramework.Example</speedWorkerKey>
         <minPawns>1</minPawns>
         <maxPawns>1</maxPawns>
         <restoreRadius>3</restoreRadius>

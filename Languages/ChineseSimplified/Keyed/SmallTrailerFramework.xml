@@ -46,4 +46,6 @@
   <STF_TabContentsContained>内部物品</STF_TabContentsContained>
   <STF_StatsContentsMass>小推车内容物：{0}</STF_StatsContentsMass>
   <STF_StatsTowedTrailerCapacity>牵引小推车负重：{0}</STF_StatsTowedTrailerCapacity>
+  <STF_CaravanMassCapacitySource>{0} 牵引的小推车</STF_CaravanMassCapacitySource>
+  <STF_CaravanSpeedFactor>小推车省力效率：{0}</STF_CaravanSpeedFactor>
 </LanguageData>

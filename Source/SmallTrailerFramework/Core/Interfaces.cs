@@ -41,6 +41,11 @@ namespace SmallTrailerFramework
         int GetCaravanTicksPerMove(CompSmallTrailerUnit unit, IReadOnlyList<Pawn> pawns, int vanillaTicksPerMove);
     }
 
+    public interface ISmallTrailerSpeedFactorWorker : ISmallTrailerSpeedWorker
+    {
+        float GetCaravanSpeedFactor(CompSmallTrailerUnit unit, IReadOnlyList<Pawn> pawns);
+    }
+
     public interface ISmallTrailerGizmoProvider
     {
         IEnumerable<Gizmo> GetGizmos(CompSmallTrailerUnit unit);

@@ -33,6 +33,10 @@
       <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>..\..\Assemblies\0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="UnityEngine">
@@ -55,6 +59,8 @@
   <ItemGroup>
     <Compile Include="Core\CompSmallTrailerUnit.cs" />
     <Compile Include="Core\Interfaces.cs" />
+    <Compile Include="Core\SmallTrailerHarmonyPatches.cs" />
+    <Compile Include="Core\SmallTrailerCaravanUtility.cs" />
     <Compile Include="Core\SmallTrailerGameComponent.cs" />
     <Compile Include="Core\SmallTrailerRegistry.cs" />
     <Compile Include="Core\SmallTrailerResult.cs" />
@@ -66,6 +72,7 @@
     <Compile Include="ExamplePlugin\Dialog_SmallTrailerLoadItems.cs" />
     <Compile Include="ExamplePlugin\ExampleSmallTrailerGameComponent.cs" />
     <Compile Include="ExamplePlugin\ExampleSmallTrailerHandler.cs" />
+    <Compile Include="ExamplePlugin\ExampleSmallTrailerSpeedWorker.cs" />
     <Compile Include="ExamplePlugin\ExampleSmallTrailerUtility.cs" />
     <Compile Include="ExamplePlugin\HediffComp_SmallTrailerTowingControl.cs" />
     <Compile Include="ExamplePlugin\Hediff_SmallTrailerTowingControl.cs" />
