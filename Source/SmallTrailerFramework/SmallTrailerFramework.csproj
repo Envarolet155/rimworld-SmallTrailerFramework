@@ -67,6 +67,7 @@
     <Compile Include="ExamplePlugin\ExampleSmallTrailerUtility.cs" />
     <Compile Include="ExamplePlugin\HediffComp_SmallTrailerTowingControl.cs" />
     <Compile Include="ExamplePlugin\Hediff_SmallTrailerTowingControl.cs" />
+    <Compile Include="ExamplePlugin\ITab_SmallTrailerContents.cs" />
     <Compile Include="ExamplePlugin\ExampleSmallTrailerMapComponent.cs" />
     <Compile Include="ExamplePlugin\ExampleSmallTrailerPlugin.cs" />
     <Compile Include="ExamplePlugin\JobDriver_AttachSmallTrailer.cs" />

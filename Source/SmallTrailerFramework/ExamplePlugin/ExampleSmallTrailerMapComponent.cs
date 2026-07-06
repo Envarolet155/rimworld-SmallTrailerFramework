@@ -55,16 +55,16 @@ namespace SmallTrailerFramework.ExamplePlugin
 
         public override void MapComponentTick()
         {
-            if (Find.TickManager.TicksGame % 250 != 0)
-            {
-                return;
-            }
-
             List<Pawn> pawns = map.mapPawns.FreeColonistsSpawned;
             for (int i = 0; i < pawns.Count; i++)
             {
                 Pawn pawn = pawns[i];
                 TryRestoreCaravanTrailer(pawn);
+                ClearAutoUnloadForTowingPawn(pawn);
+                if (Find.TickManager.TicksGame % 250 != 0)
+                {
+                    continue;
+                }
                 if (pawn.Drafted || pawn.inventory == null || !HasTowedTrailer(pawn))
                 {
                     EnsureTowingControlHediff(pawn, removeIfMissing: true);
@@ -72,7 +72,10 @@ namespace SmallTrailerFramework.ExamplePlugin
                 }
                 EnsureTowingControlHediff(pawn, removeIfMissing: false);
             }
-            CleanupLoadPlans();
+            if (Find.TickManager.TicksGame % 250 == 0)
+            {
+                CleanupLoadPlans();
+            }
         }
 
         public void SetLoadPlan(CompSmallTrailerUnit unit, Dictionary<Thing, int> counts)
@@ -207,7 +210,16 @@ namespace SmallTrailerFramework.ExamplePlugin
                 }
                 bridge.TryRestoreStateFromCaravan(unit.State, map.mapPawns.FreeColonistsSpawned);
                 unit.State.mode = SmallTrailerMode.Towing;
+                pawn.inventory.UnloadEverything = false;
                 SmallTrailerGameComponent.Current?.Register(unit.State);
+            }
+        }
+
+        private static void ClearAutoUnloadForTowingPawn(Pawn pawn)
+        {
+            if (pawn?.inventory != null && HasTowedTrailer(pawn))
+            {
+                pawn.inventory.UnloadEverything = false;
             }
         }
 
@@ -234,10 +246,23 @@ namespace SmallTrailerFramework.ExamplePlugin
         private static void DrawTrailerForPawn(Thing trailer, Pawn pawn)
         {
             Rot4 rot = pawn.Rotation;
-            Vector3 offset = rot.FacingCell.ToVector3() * -0.72f;
+            Vector3 offset = DrawOffsetForPawn(rot);
             Vector3 loc = pawn.DrawPos + offset;
             loc.y = AltitudeLayer.Item.AltitudeFor();
             trailer.Graphic.Draw(loc, DrawRotForPawn(rot), trailer);
+        }
+
+        private static Vector3 DrawOffsetForPawn(Rot4 pawnRot)
+        {
+            if (pawnRot == Rot4.North)
+            {
+                return new Vector3(0f, 0f, 0.72f);
+            }
+            if (pawnRot == Rot4.South)
+            {
+                return new Vector3(0f, 0f, -0.72f);
+            }
+            return pawnRot.FacingCell.ToVector3() * -0.72f;
         }
 
         private static Rot4 DrawRotForPawn(Rot4 pawnRot)

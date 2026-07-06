@@ -14,7 +14,7 @@
     <graphicData>
       <texPath>small-trailer</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(1.1,1.1)</drawSize>
+      <drawSize>(2,2)</drawSize>
     </graphicData>
     <size>(1,1)</size>
     <passability>PassThroughOnly</passability>
@@ -38,6 +38,9 @@
     <comps>
       <li Class="SmallTrailerFramework.CompProperties_SmallTrailerUnit" />
     </comps>
+    <inspectorTabs>
+      <li>SmallTrailerFramework.ExamplePlugin.ITab_SmallTrailerContents</li>
+    </inspectorTabs>
     <modExtensions>
       <li Class="SmallTrailerFramework.SmallTrailerUnitDefExtension">
         <buildingThingDef>STF_SmallTrailer</buildingThingDef>
@@ -66,7 +69,7 @@
     <graphicData>
       <texPath>small-trailer</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(1.1,1.1)</drawSize>
+      <drawSize>(2,2)</drawSize>
     </graphicData>
     <statBases>
       <MaxHitPoints>120</MaxHitPoints>

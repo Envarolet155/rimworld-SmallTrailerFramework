@@ -42,4 +42,6 @@
   <STF_LoadDialogTitle>装载小推车</STF_LoadDialogTitle>
   <STF_LoadDialogMass>重量：{0} / {1}</STF_LoadDialogMass>
   <STF_MessageLoadPlanCreated>小推车装载清单已创建。</STF_MessageLoadPlanCreated>
+  <STF_TabContents>物品</STF_TabContents>
+  <STF_TabContentsContained>内部物品</STF_TabContentsContained>
 </LanguageData>

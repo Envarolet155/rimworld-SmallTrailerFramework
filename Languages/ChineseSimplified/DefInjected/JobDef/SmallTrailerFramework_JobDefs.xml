@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <STF_AttachSmallTrailer.reportString>正在挂接小推车。</STF_AttachSmallTrailer.reportString>
+  <STF_LoadSmallTrailer.reportString>正在把 TargetA 装入小推车。</STF_LoadSmallTrailer.reportString>
+</LanguageData>

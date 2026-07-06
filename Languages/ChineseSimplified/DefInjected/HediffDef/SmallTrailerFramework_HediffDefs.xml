@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <STF_TowingControl.label>小推车牵引控制</STF_TowingControl.label>
+  <STF_TowingControl.description>小推车框架示例插件使用的隐藏健康状态，用于在牵引小人身上显示牵引命令。</STF_TowingControl.description>
+</LanguageData>

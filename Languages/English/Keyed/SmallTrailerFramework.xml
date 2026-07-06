@@ -42,4 +42,6 @@
   <STF_LoadDialogTitle>Load small trailer</STF_LoadDialogTitle>
   <STF_LoadDialogMass>Mass: {0} / {1}</STF_LoadDialogMass>
   <STF_MessageLoadPlanCreated>Small trailer loading list created.</STF_MessageLoadPlanCreated>
+  <STF_TabContents>Contents</STF_TabContents>
+  <STF_TabContentsContained>Stored items</STF_TabContentsContained>
 </LanguageData>

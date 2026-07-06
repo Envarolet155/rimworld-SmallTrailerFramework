@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <STF_SmallTrailer.label>小推车</STF_SmallTrailer.label>
+  <STF_SmallTrailer.description>基于小推车框架的紧凑示例小推车。它演示共享状态、牵引以及尽力还原的远行库存兼容。</STF_SmallTrailer.description>
+  <STF_SmallTrailerPacked.label>小推车牵引标记</STF_SmallTrailerPacked.label>
+  <STF_SmallTrailerPacked.description>小推车框架单元的打包表示。它保存单元状态，并可由小人携带来表示牵引态。</STF_SmallTrailerPacked.description>
+</LanguageData>
