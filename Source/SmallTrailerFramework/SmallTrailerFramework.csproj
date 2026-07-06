@@ -58,6 +58,7 @@
     <Compile Include="ExamplePlugin\Hediff_SmallTrailerTowingControl.cs" />
     <Compile Include="ExamplePlugin\ExampleSmallTrailerMapComponent.cs" />
     <Compile Include="ExamplePlugin\ExampleSmallTrailerPlugin.cs" />
+    <Compile Include="ExamplePlugin\ThinkNode_ConditionalTowingSmallTrailer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,11 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
-using RimWorld.Planet;
 using UnityEngine;
 using Verse;
-using Verse.AI;
-using Verse.AI.Group;
 
 namespace SmallTrailerFramework.ExamplePlugin
 {
@@ -58,12 +55,6 @@ namespace SmallTrailerFramework.ExamplePlugin
                     continue;
                 }
                 EnsureTowingControlHediff(pawn, removeIfMissing: false);
-                if (!ShouldKeepCurrentJob(pawn))
-                {
-                    Job job = JobMaker.MakeJob(JobDefOf.Wait);
-                    job.expiryInterval = 300;
-                    pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
-                }
             }
         }
 
@@ -90,37 +81,6 @@ namespace SmallTrailerFramework.ExamplePlugin
             {
                 pawn.health.RemoveHediff(existing);
             }
-        }
-
-        private static bool ShouldKeepCurrentJob(Pawn pawn)
-        {
-            if (pawn.IsFormingCaravan())
-            {
-                return true;
-            }
-
-            Job job = pawn.CurJob;
-            if (job == null)
-            {
-                return false;
-            }
-
-            if (job.def == JobDefOf.Wait)
-            {
-                return true;
-            }
-
-            if (job.playerForced || job.exitMapOnArrival || job.failIfCantJoinOrCreateCaravan)
-            {
-                return true;
-            }
-
-            if (job.lord?.LordJob is LordJob_FormAndSendCaravan || pawn.GetLord()?.LordJob is LordJob_FormAndSendCaravan)
-            {
-                return true;
-            }
-
-            return false;
         }
 
         private static void DrawTrailerForPawn(Thing trailer, Pawn pawn)
