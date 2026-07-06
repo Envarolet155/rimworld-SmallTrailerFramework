@@ -58,6 +58,8 @@
     <Compile Include="Core\SmallTrailerGameComponent.cs" />
     <Compile Include="Core\SmallTrailerRegistry.cs" />
     <Compile Include="Core\SmallTrailerResult.cs" />
+    <Compile Include="Core\StatPart_SmallTrailerCarryingCapacity.cs" />
+    <Compile Include="Core\StatPart_SmallTrailerMass.cs" />
     <Compile Include="Core\SmallTrailerState.cs" />
     <Compile Include="Core\SmallTrailerUnitDefExtension.cs" />
     <Compile Include="Core\SmallTrailerUtility.cs" />

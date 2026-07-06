@@ -44,4 +44,6 @@
   <STF_MessageLoadPlanCreated>小推车装载清单已创建。</STF_MessageLoadPlanCreated>
   <STF_TabContents>物品</STF_TabContents>
   <STF_TabContentsContained>内部物品</STF_TabContentsContained>
+  <STF_StatsContentsMass>小推车内容物：{0}</STF_StatsContentsMass>
+  <STF_StatsTowedTrailerCapacity>牵引小推车负重：{0}</STF_StatsTowedTrailerCapacity>
 </LanguageData>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/StatDef[defName="Mass"]/parts</xpath>
+    <value>
+      <li Class="SmallTrailerFramework.StatPart_SmallTrailerMass" />
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/StatDef[defName="Mass"]/cacheable</xpath>
+    <value>
+      <cacheable>false</cacheable>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/StatDef[defName="CarryingCapacity"]/parts</xpath>
+    <value>
+      <li Class="SmallTrailerFramework.StatPart_SmallTrailerCarryingCapacity" />
+    </value>
+  </Operation>
+</Patch>
