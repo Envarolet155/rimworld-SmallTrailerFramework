@@ -80,8 +80,10 @@
     <Compile Include="ExamplePlugin\ExampleSmallTrailerMapComponent.cs" />
     <Compile Include="ExamplePlugin\ExampleSmallTrailerPlugin.cs" />
     <Compile Include="ExamplePlugin\JobDriver_AttachSmallTrailer.cs" />
+    <Compile Include="ExamplePlugin\JobDriver_DeploySmallTrailer.cs" />
     <Compile Include="ExamplePlugin\JobDriver_LoadSmallTrailer.cs" />
     <Compile Include="ExamplePlugin\SmallTrailerLoadPlan.cs" />
+    <Compile Include="ExamplePlugin\SmallTrailerDeployUtility.cs" />
     <Compile Include="ExamplePlugin\ThinkNode_ConditionalTowingSmallTrailer.cs" />
     <Compile Include="ExamplePlugin\WorkGiver_LoadSmallTrailer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

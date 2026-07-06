@@ -8,7 +8,7 @@ using Verse.AI;
 
 namespace SmallTrailerFramework.ExamplePlugin
 {
-    public class ExampleSmallTrailerHandler : ISmallTrailerModeHandler, ISmallTrailerInventoryBridge, ISmallTrailerGizmoProvider, ISmallTrailerAttachGizmoProvider
+    public class ExampleSmallTrailerHandler : ISmallTrailerModeHandler, ISmallTrailerRotatedLeaveHandler, ISmallTrailerInventoryBridge, ISmallTrailerGizmoProvider, ISmallTrailerAttachGizmoProvider
     {
         public string Key => "SmallTrailerFramework.Example";
 
@@ -80,6 +80,16 @@ namespace SmallTrailerFramework.ExamplePlugin
 
         public SmallTrailerResult TryLeaveMode(CompSmallTrailerUnit unit, SmallTrailerMode currentMode, Map targetMap, IntVec3 targetCell)
         {
+            return TryLeaveModeInternal(unit, currentMode, targetMap, targetCell, Rot4.Invalid, exactPlacement: false);
+        }
+
+        public SmallTrailerResult TryLeaveMode(CompSmallTrailerUnit unit, SmallTrailerMode currentMode, Map targetMap, IntVec3 targetCell, Rot4 rotation)
+        {
+            return TryLeaveModeInternal(unit, currentMode, targetMap, targetCell, rotation, exactPlacement: true);
+        }
+
+        private SmallTrailerResult TryLeaveModeInternal(CompSmallTrailerUnit unit, SmallTrailerMode currentMode, Map targetMap, IntVec3 targetCell, Rot4 rotation, bool exactPlacement)
+        {
             if (unit?.Extension == null)
             {
                 return SmallTrailerResult.Fail("STF_FailNoExtension".Translate());
@@ -107,9 +117,27 @@ namespace SmallTrailerFramework.ExamplePlugin
             state.lastCell = targetCell;
             buildingComp.AdoptState(state);
 
-            bool placed = GenPlace.TryPlaceThing(building, targetCell, targetMap, ThingPlaceMode.Near);
+            bool placed;
+            if (exactPlacement)
+            {
+                Rot4 rot = rotation.IsValid ? rotation : buildingDef.defaultPlacingRot;
+                AcceptanceReport report = GenConstruct.CanPlaceBlueprintAt(buildingDef, targetCell, rot, targetMap);
+                if (!report.Accepted)
+                {
+                    state.mode = currentMode;
+                    unit.AdoptState(state);
+                    return SmallTrailerResult.Fail(report.Reason.NullOrEmpty() ? "STF_FailPlaceBuilding".Translate() : report.Reason);
+                }
+                GenSpawn.Spawn(building, targetCell, targetMap, rot);
+                placed = true;
+            }
+            else
+            {
+                placed = GenPlace.TryPlaceThing(building, targetCell, targetMap, ThingPlaceMode.Near);
+            }
             if (!placed)
             {
+                state.mode = currentMode;
                 unit.AdoptState(state);
                 return SmallTrailerResult.Fail("STF_FailPlaceBuilding".Translate());
             }

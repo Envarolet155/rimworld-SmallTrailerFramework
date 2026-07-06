@@ -20,6 +20,11 @@ namespace SmallTrailerFramework
         SmallTrailerResult TryLeaveMode(CompSmallTrailerUnit unit, SmallTrailerMode currentMode, Map targetMap, IntVec3 targetCell);
     }
 
+    public interface ISmallTrailerRotatedLeaveHandler
+    {
+        SmallTrailerResult TryLeaveMode(CompSmallTrailerUnit unit, SmallTrailerMode currentMode, Map targetMap, IntVec3 targetCell, Rot4 rotation);
+    }
+
     public interface ISmallTrailerStateStore
     {
         void Register(SmallTrailerState state);

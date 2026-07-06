@@ -31,10 +31,18 @@ namespace SmallTrailerFramework.ExamplePlugin
 
                 yield return new Command_Action
                 {
-                    defaultLabel = "STF_CommandDetachPawn".Translate() + suffix,
-                    defaultDesc = "STF_CommandDetachPawnDesc".Translate(),
+                    defaultLabel = "STF_CommandEmergencyDetachPawn".Translate() + suffix,
+                    defaultDesc = "STF_CommandEmergencyDetachPawnDesc".Translate(),
                     icon = ContentFinder<Texture2D>.Get("UI/Commands/UnloadTransporter", false),
                     action = () => Detach(unit)
+                };
+
+                yield return new Command_Action
+                {
+                    defaultLabel = "STF_CommandDeployPawn".Translate() + suffix,
+                    defaultDesc = "STF_CommandDeployPawnDesc".Translate(),
+                    icon = TexCommand.Install,
+                    action = () => SmallTrailerDeployUtility.BeginDeployTargeting(unit)
                 };
 
                 if (unit.State.InnerContainer.Count > 0)

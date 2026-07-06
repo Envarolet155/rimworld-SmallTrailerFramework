@@ -2,4 +2,5 @@
 <LanguageData>
   <STF_AttachSmallTrailer.reportString>正在挂接小推车。</STF_AttachSmallTrailer.reportString>
   <STF_LoadSmallTrailer.reportString>正在把 TargetA 装入小推车。</STF_LoadSmallTrailer.reportString>
+  <STF_DeploySmallTrailer.reportString>正在部署小推车。</STF_DeploySmallTrailer.reportString>
 </LanguageData>

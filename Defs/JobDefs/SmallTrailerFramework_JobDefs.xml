@@ -12,4 +12,10 @@
     <reportString>loading TargetA into small trailer.</reportString>
     <suspendable>false</suspendable>
   </JobDef>
+
+  <JobDef>
+    <defName>STF_DeploySmallTrailer</defName>
+    <driverClass>SmallTrailerFramework.ExamplePlugin.JobDriver_DeploySmallTrailer</driverClass>
+    <reportString>deploying small trailer.</reportString>
+  </JobDef>
 </Defs>

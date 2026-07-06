@@ -7,6 +7,10 @@
   <STF_CommandDetachDesc>Try to restore this unit as a building near the towing pawn.</STF_CommandDetachDesc>
   <STF_CommandDetachPawn>Detach trailer</STF_CommandDetachPawn>
   <STF_CommandDetachPawnDesc>Detach a towed trailer from this pawn and try to restore it as a nearby building.</STF_CommandDetachPawnDesc>
+  <STF_CommandEmergencyDetachPawn>Emergency detach</STF_CommandEmergencyDetachPawn>
+  <STF_CommandEmergencyDetachPawnDesc>Immediately restore this trailer near the towing pawn without choosing a placement.</STF_CommandEmergencyDetachPawnDesc>
+  <STF_CommandDeployPawn>Deploy trailer</STF_CommandDeployPawn>
+  <STF_CommandDeployPawnDesc>Choose a placement. The towing pawn will walk there and restore the trailer as a building.</STF_CommandDeployPawnDesc>
   <STF_CommandCaravanRestore>Restore inventory</STF_CommandCaravanRestore>
   <STF_CommandCaravanRestoreDesc>Best-effort restore manifest items that still exist in spawned colonist inventories.</STF_CommandCaravanRestoreDesc>
   <STF_CommandLoadNearby>Load trailer</STF_CommandLoadNearby>

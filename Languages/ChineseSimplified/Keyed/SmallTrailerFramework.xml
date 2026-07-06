@@ -7,6 +7,10 @@
   <STF_CommandDetachDesc>在牵引者附近尝试还原为建筑态。</STF_CommandDetachDesc>
   <STF_CommandDetachPawn>卸下小推车</STF_CommandDetachPawn>
   <STF_CommandDetachPawnDesc>从当前小人身上卸下正在牵引的小推车，并在附近尝试还原为建筑态。</STF_CommandDetachPawnDesc>
+  <STF_CommandEmergencyDetachPawn>紧急卸车</STF_CommandEmergencyDetachPawn>
+  <STF_CommandEmergencyDetachPawnDesc>不选择位置，立即在牵引者附近把小推车还原为建筑态。</STF_CommandEmergencyDetachPawnDesc>
+  <STF_CommandDeployPawn>部署卸车</STF_CommandDeployPawn>
+  <STF_CommandDeployPawnDesc>选择一个放置位置，牵引者会走到附近并把小推车还原为建筑态。</STF_CommandDeployPawnDesc>
   <STF_CommandCaravanRestore>尝试还原库存</STF_CommandCaravanRestore>
   <STF_CommandCaravanRestoreDesc>按远行清单从地图上殖民者库存中尽力取回仍存在的物品。</STF_CommandCaravanRestoreDesc>
   <STF_CommandLoadNearby>装载小推车</STF_CommandLoadNearby>
