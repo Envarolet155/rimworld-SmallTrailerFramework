@@ -71,6 +71,7 @@ namespace SmallTrailerFramework.ExamplePlugin
                 return SmallTrailerResult.Fail("STF_FailInventoryRejected".Translate(primary.LabelShortCap));
             }
 
+            ExampleSmallTrailerMapComponent.EnsureTowingControlHediff(primary, removeIfMissing: false);
             SmallTrailerGameComponent.Current?.Register(state);
             return SmallTrailerResult.Success;
         }
@@ -230,7 +231,7 @@ namespace SmallTrailerFramework.ExamplePlugin
             Messages.Message("STF_MessageSuccess".Translate(), MessageTypeDefOf.PositiveEvent, false);
         }
 
-        private static void UnloadContents(CompSmallTrailerUnit unit)
+        public static void UnloadContents(CompSmallTrailerUnit unit)
         {
             Map map = unit.parent.MapHeld;
             IntVec3 cell = unit.parent.Spawned ? unit.parent.Position : SmallTrailerUtility.FindHoldingPawn(unit.parent)?.Position ?? IntVec3.Invalid;

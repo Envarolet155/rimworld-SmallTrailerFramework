@@ -8,6 +8,10 @@ namespace SmallTrailerFramework
     {
         private List<SmallTrailerState> states = new List<SmallTrailerState>();
 
+        public SmallTrailerGameComponent(Game game)
+        {
+        }
+
         public static SmallTrailerGameComponent Current => Verse.Current.Game?.GetComponent<SmallTrailerGameComponent>();
 
         public void Register(SmallTrailerState state)

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <HediffDef>
+    <defName>STF_TowingControl</defName>
+    <label>small trailer towing control</label>
+    <description>Hidden control hediff used by the Small Trailer Framework example plugin to expose towing commands on the towing pawn.</description>
+    <hediffClass>SmallTrailerFramework.ExamplePlugin.Hediff_SmallTrailerTowingControl</hediffClass>
+    <initialSeverity>1</initialSeverity>
+    <isBad>false</isBad>
+    <makesAlert>false</makesAlert>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <comps>
+      <li Class="SmallTrailerFramework.ExamplePlugin.HediffCompProperties_SmallTrailerTowingControl" />
+    </comps>
+  </HediffDef>
+</Defs>

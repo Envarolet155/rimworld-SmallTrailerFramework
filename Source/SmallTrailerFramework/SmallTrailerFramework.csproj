@@ -54,6 +54,8 @@
     <Compile Include="Core\SmallTrailerUnitDefExtension.cs" />
     <Compile Include="Core\SmallTrailerUtility.cs" />
     <Compile Include="ExamplePlugin\ExampleSmallTrailerHandler.cs" />
+    <Compile Include="ExamplePlugin\HediffComp_SmallTrailerTowingControl.cs" />
+    <Compile Include="ExamplePlugin\Hediff_SmallTrailerTowingControl.cs" />
     <Compile Include="ExamplePlugin\ExampleSmallTrailerMapComponent.cs" />
     <Compile Include="ExamplePlugin\ExampleSmallTrailerPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

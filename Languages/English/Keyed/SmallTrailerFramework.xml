@@ -5,6 +5,8 @@
   <STF_CommandAttachDesc>Select a colonist and switch this unit into towing mode. The concrete behavior is provided by the internal example plugin.</STF_CommandAttachDesc>
   <STF_CommandDetach>Detach trailer</STF_CommandDetach>
   <STF_CommandDetachDesc>Try to restore this unit as a building near the towing pawn.</STF_CommandDetachDesc>
+  <STF_CommandDetachPawn>Detach trailer</STF_CommandDetachPawn>
+  <STF_CommandDetachPawnDesc>Detach a towed trailer from this pawn and try to restore it as a nearby building.</STF_CommandDetachPawnDesc>
   <STF_CommandCaravanRestore>Restore inventory</STF_CommandCaravanRestore>
   <STF_CommandCaravanRestoreDesc>Best-effort restore manifest items that still exist in spawned colonist inventories.</STF_CommandCaravanRestoreDesc>
   <STF_CommandLoadNearby>Load nearby item</STF_CommandLoadNearby>
@@ -21,6 +23,7 @@
   <STF_MessageNoMap>No valid map.</STF_MessageNoMap>
   <STF_MessageNoHoldingPawn>Could not find a pawn holding this unit.</STF_MessageNoHoldingPawn>
   <STF_MessageNoBridge>No caravan inventory bridge is available.</STF_MessageNoBridge>
+  <STF_MessageNoHandler>No small trailer handler is available.</STF_MessageNoHandler>
   <STF_FailNoExtension>This unit is missing SmallTrailerUnitDefExtension.</STF_FailNoExtension>
   <STF_FailNoPackedDef>This unit has no packed token def configured.</STF_FailNoPackedDef>
   <STF_FailPawnCount>Invalid towing pawn count: expected {0} to {1}.</STF_FailPawnCount>

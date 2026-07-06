@@ -5,6 +5,8 @@
   <STF_CommandAttachDesc>选择一名殖民者，将该单元切换到牵引态。具体实现来自内部示例插件。</STF_CommandAttachDesc>
   <STF_CommandDetach>卸下小推车</STF_CommandDetach>
   <STF_CommandDetachDesc>在牵引者附近尝试还原为建筑态。</STF_CommandDetachDesc>
+  <STF_CommandDetachPawn>卸下小推车</STF_CommandDetachPawn>
+  <STF_CommandDetachPawnDesc>从当前小人身上卸下正在牵引的小推车，并在附近尝试还原为建筑态。</STF_CommandDetachPawnDesc>
   <STF_CommandCaravanRestore>尝试还原库存</STF_CommandCaravanRestore>
   <STF_CommandCaravanRestoreDesc>按远行清单从地图上殖民者库存中尽力取回仍存在的物品。</STF_CommandCaravanRestoreDesc>
   <STF_CommandLoadNearby>装载附近物品</STF_CommandLoadNearby>
@@ -21,6 +23,7 @@
   <STF_MessageNoMap>没有有效地图。</STF_MessageNoMap>
   <STF_MessageNoHoldingPawn>找不到携带该单元的小人。</STF_MessageNoHoldingPawn>
   <STF_MessageNoBridge>没有可用的远行库存桥接器。</STF_MessageNoBridge>
+  <STF_MessageNoHandler>没有可用的小推车处理器。</STF_MessageNoHandler>
   <STF_FailNoExtension>该单元缺少 SmallTrailerUnitDefExtension。</STF_FailNoExtension>
   <STF_FailNoPackedDef>该单元没有配置牵引态 token。</STF_FailNoPackedDef>
   <STF_FailPawnCount>牵引人数不符合要求：需要 {0} 到 {1} 人。</STF_FailPawnCount>

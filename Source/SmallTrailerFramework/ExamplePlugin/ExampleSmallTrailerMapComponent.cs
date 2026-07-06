@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -51,8 +52,10 @@ namespace SmallTrailerFramework.ExamplePlugin
                 Pawn pawn = pawns[i];
                 if (pawn.Drafted || pawn.inventory == null || !HasTowedTrailer(pawn))
                 {
+                    EnsureTowingControlHediff(pawn, removeIfMissing: true);
                     continue;
                 }
+                EnsureTowingControlHediff(pawn, removeIfMissing: false);
                 if (pawn.CurJob == null || pawn.CurJob.def != JobDefOf.Wait)
                 {
                     Job job = JobMaker.MakeJob(JobDefOf.Wait);
@@ -64,15 +67,27 @@ namespace SmallTrailerFramework.ExamplePlugin
 
         private static bool HasTowedTrailer(Pawn pawn)
         {
-            for (int i = 0; i < pawn.inventory.innerContainer.Count; i++)
+            return HediffComp_SmallTrailerTowingControl.TowedTrailers(pawn).Any();
+        }
+
+        public static void EnsureTowingControlHediff(Pawn pawn, bool removeIfMissing)
+        {
+            HediffDef def = DefDatabase<HediffDef>.GetNamedSilentFail("STF_TowingControl");
+            if (def == null || pawn.health == null)
             {
-                CompSmallTrailerUnit comp = pawn.inventory.innerContainer[i].TryGetComp<CompSmallTrailerUnit>();
-                if (comp?.State.mode == SmallTrailerMode.Towing)
-                {
-                    return true;
-                }
+                return;
             }
-            return false;
+
+            Hediff existing = pawn.health.hediffSet.GetFirstHediffOfDef(def);
+            bool hasTrailer = HasTowedTrailer(pawn);
+            if (hasTrailer && existing == null)
+            {
+                pawn.health.AddHediff(def);
+            }
+            else if (!hasTrailer && removeIfMissing && existing != null)
+            {
+                pawn.health.RemoveHediff(existing);
+            }
         }
 
         private static void DrawTrailerForPawn(Thing trailer, Pawn pawn)
