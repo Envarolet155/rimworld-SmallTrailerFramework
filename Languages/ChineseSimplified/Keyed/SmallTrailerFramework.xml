@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <STF_InspectState>状态：{0}；内部物品：{1}</STF_InspectState>
+  <STF_CommandAttach>挂接小推车</STF_CommandAttach>
+  <STF_CommandAttachDesc>选择一名殖民者，将该单元切换到牵引态。具体实现来自内部示例插件。</STF_CommandAttachDesc>
+  <STF_CommandDetach>卸下小推车</STF_CommandDetach>
+  <STF_CommandDetachDesc>在牵引者附近尝试还原为建筑态。</STF_CommandDetachDesc>
+  <STF_CommandCaravanRestore>尝试还原库存</STF_CommandCaravanRestore>
+  <STF_CommandCaravanRestoreDesc>按远行清单从地图上殖民者库存中尽力取回仍存在的物品。</STF_CommandCaravanRestoreDesc>
+  <STF_CommandLoadNearby>装载附近物品</STF_CommandLoadNearby>
+  <STF_CommandLoadNearbyDesc>示例插件命令：选择附近物品并放入小推车内部状态容器。</STF_CommandLoadNearbyDesc>
+  <STF_CommandUnloadContents>卸出内部物品</STF_CommandUnloadContents>
+  <STF_CommandUnloadContentsDesc>示例插件命令：把小推车内部容器中的物品放到附近地面。</STF_CommandUnloadContentsDesc>
+  <STF_NoHandler>缺少小推车处理器</STF_NoHandler>
+  <STF_NoHandlerDesc>未注册键为 {0} 的小推车处理器。</STF_NoHandlerDesc>
+  <STF_SelectPawn>选择牵引者</STF_SelectPawn>
+  <STF_SelectItem>选择物品</STF_SelectItem>
+  <STF_NoReachablePawn>没有可到达的小人</STF_NoReachablePawn>
+  <STF_NoNearbyItems>附近没有可装载物品</STF_NoNearbyItems>
+  <STF_MessageSuccess>小推车操作完成。</STF_MessageSuccess>
+  <STF_MessageNoMap>没有有效地图。</STF_MessageNoMap>
+  <STF_MessageNoHoldingPawn>找不到携带该单元的小人。</STF_MessageNoHoldingPawn>
+  <STF_MessageNoBridge>没有可用的远行库存桥接器。</STF_MessageNoBridge>
+  <STF_FailNoExtension>该单元缺少 SmallTrailerUnitDefExtension。</STF_FailNoExtension>
+  <STF_FailNoPackedDef>该单元没有配置牵引态 token。</STF_FailNoPackedDef>
+  <STF_FailPawnCount>牵引人数不符合要求：需要 {0} 到 {1} 人。</STF_FailPawnCount>
+  <STF_FailInvalidPawn>牵引者不可用。</STF_FailInvalidPawn>
+  <STF_FailModeUnsupported>示例插件不支持切换到 {0}。</STF_FailModeUnsupported>
+  <STF_FailPackedMissingComp>牵引态 token 缺少小推车组件。</STF_FailPackedMissingComp>
+  <STF_FailInventoryRejected>{0} 无法携带小推车 token。</STF_FailInventoryRejected>
+  <STF_FailNoBuildingDef>该单元没有配置建筑态 Def。</STF_FailNoBuildingDef>
+  <STF_FailBuildingMissingComp>建筑态 Def 缺少小推车组件。</STF_FailBuildingMissingComp>
+  <STF_FailPlaceBuilding>无法在附近放置小推车建筑。</STF_FailPlaceBuilding>
+  <STF_FailInvalidStateOrCaravan>状态或远行队无效。</STF_FailInvalidStateOrCaravan>
+  <STF_FailNothingRestored>没有找到可还原的清单物品。</STF_FailNothingRestored>
+  <STF_FailInvalidItem>物品无效。</STF_FailInvalidItem>
+  <STF_FailLoadItem>无法装载该物品。</STF_FailLoadItem>
+</LanguageData>

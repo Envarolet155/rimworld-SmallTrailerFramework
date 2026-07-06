@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Small Trailer Framework</name>
+  <author>Envarolet_155</author>
+  <packageId>Envarolet155.SmallTrailerFramework</packageId>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <description>
+    A lightweight, vanilla-compatible framework for small trailer-like units with shared internal state across building, towing, and caravan-oriented modes.
+
+    The framework core exposes interfaces, state storage, and compatibility helpers. The included small trailer is an internal example plugin, not hard-coded framework behavior.
+  </description>
+</ModMetaData>

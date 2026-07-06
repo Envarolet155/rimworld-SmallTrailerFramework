@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="BuildingBase">
+    <defName>STF_SmallTrailer</defName>
+    <label>small trailer</label>
+    <description>A compact example trailer built on Small Trailer Framework. It demonstrates shared state, towing, and best-effort inventory restoration.</description>
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <altitudeLayer>Building</altitudeLayer>
+    <useHitPoints>true</useHitPoints>
+    <selectable>true</selectable>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <tickerType>Normal</tickerType>
+    <graphicData>
+      <texPath>small-trailer</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(1.2,1.2)</drawSize>
+    </graphicData>
+    <size>(1,1)</size>
+    <passability>PassThroughOnly</passability>
+    <pathCost>15</pathCost>
+    <statBases>
+      <MaxHitPoints>120</MaxHitPoints>
+      <Mass>8</Mass>
+      <WorkToBuild>1200</WorkToBuild>
+      <Flammability>1.0</Flammability>
+      <MarketValue>45</MarketValue>
+    </statBases>
+    <costList>
+      <WoodLog>35</WoodLog>
+      <Steel>20</Steel>
+    </costList>
+    <designationCategory>Misc</designationCategory>
+    <constructEffect>ConstructMetal</constructEffect>
+    <building>
+      <deconstructible>true</deconstructible>
+    </building>
+    <comps>
+      <li Class="SmallTrailerFramework.CompProperties_SmallTrailerUnit" />
+    </comps>
+    <modExtensions>
+      <li Class="SmallTrailerFramework.SmallTrailerUnitDefExtension">
+        <buildingThingDef>STF_SmallTrailer</buildingThingDef>
+        <packedThingDef>STF_SmallTrailerPacked</packedThingDef>
+        <handlerKey>SmallTrailerFramework.Example</handlerKey>
+        <inventoryBridgeKey>SmallTrailerFramework.Example</inventoryBridgeKey>
+        <speedWorkerKey>SmallTrailerFramework.Default</speedWorkerKey>
+        <minPawns>1</minPawns>
+        <maxPawns>1</maxPawns>
+        <restoreRadius>3</restoreRadius>
+        <canEnterCaravan>true</canEnterCaravan>
+        <drawTexPath>small-trailer</drawTexPath>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>STF_SmallTrailerPacked</defName>
+    <label>small trailer token</label>
+    <description>A packed representation of a Small Trailer Framework unit. It stores the unit state and can be carried by a pawn.</description>
+    <thingClass>ThingWithComps</thingClass>
+    <category>Item</category>
+    <tickerType>Normal</tickerType>
+    <selectable>true</selectable>
+    <graphicData>
+      <texPath>small-trailer</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(1.0,1.0)</drawSize>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>120</MaxHitPoints>
+      <Mass>8</Mass>
+      <MarketValue>45</MarketValue>
+      <Flammability>1.0</Flammability>
+      <DeteriorationRate>1</DeteriorationRate>
+    </statBases>
+    <thingCategories>
+      <li>Items</li>
+    </thingCategories>
+    <comps>
+      <li Class="CompProperties_Forbiddable" />
+      <li Class="SmallTrailerFramework.CompProperties_SmallTrailerUnit" />
+    </comps>
+    <modExtensions>
+      <li Class="SmallTrailerFramework.SmallTrailerUnitDefExtension">
+        <buildingThingDef>STF_SmallTrailer</buildingThingDef>
+        <packedThingDef>STF_SmallTrailerPacked</packedThingDef>
+        <handlerKey>SmallTrailerFramework.Example</handlerKey>
+        <inventoryBridgeKey>SmallTrailerFramework.Example</inventoryBridgeKey>
+        <speedWorkerKey>SmallTrailerFramework.Default</speedWorkerKey>
+        <minPawns>1</minPawns>
+        <maxPawns>1</maxPawns>
+        <restoreRadius>3</restoreRadius>
+        <canEnterCaravan>true</canEnterCaravan>
+        <drawTexPath>small-trailer</drawTexPath>
+      </li>
+    </modExtensions>
+  </ThingDef>
+</Defs>

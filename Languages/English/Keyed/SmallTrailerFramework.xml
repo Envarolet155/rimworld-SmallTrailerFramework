@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <STF_InspectState>State: {0}; internal items: {1}</STF_InspectState>
+  <STF_CommandAttach>Attach trailer</STF_CommandAttach>
+  <STF_CommandAttachDesc>Select a colonist and switch this unit into towing mode. The concrete behavior is provided by the internal example plugin.</STF_CommandAttachDesc>
+  <STF_CommandDetach>Detach trailer</STF_CommandDetach>
+  <STF_CommandDetachDesc>Try to restore this unit as a building near the towing pawn.</STF_CommandDetachDesc>
+  <STF_CommandCaravanRestore>Restore inventory</STF_CommandCaravanRestore>
+  <STF_CommandCaravanRestoreDesc>Best-effort restore manifest items that still exist in spawned colonist inventories.</STF_CommandCaravanRestoreDesc>
+  <STF_CommandLoadNearby>Load nearby item</STF_CommandLoadNearby>
+  <STF_CommandLoadNearbyDesc>Example plugin command: choose a nearby item and put it into the trailer state container.</STF_CommandLoadNearbyDesc>
+  <STF_CommandUnloadContents>Unload contents</STF_CommandUnloadContents>
+  <STF_CommandUnloadContentsDesc>Example plugin command: place the trailer container contents on nearby ground.</STF_CommandUnloadContentsDesc>
+  <STF_NoHandler>Missing trailer handler</STF_NoHandler>
+  <STF_NoHandlerDesc>No small trailer handler is registered for key {0}.</STF_NoHandlerDesc>
+  <STF_SelectPawn>Select towing pawn</STF_SelectPawn>
+  <STF_SelectItem>Select item</STF_SelectItem>
+  <STF_NoReachablePawn>No reachable pawn</STF_NoReachablePawn>
+  <STF_NoNearbyItems>No nearby loadable items</STF_NoNearbyItems>
+  <STF_MessageSuccess>Small trailer operation completed.</STF_MessageSuccess>
+  <STF_MessageNoMap>No valid map.</STF_MessageNoMap>
+  <STF_MessageNoHoldingPawn>Could not find a pawn holding this unit.</STF_MessageNoHoldingPawn>
+  <STF_MessageNoBridge>No caravan inventory bridge is available.</STF_MessageNoBridge>
+  <STF_FailNoExtension>This unit is missing SmallTrailerUnitDefExtension.</STF_FailNoExtension>
+  <STF_FailNoPackedDef>This unit has no packed token def configured.</STF_FailNoPackedDef>
+  <STF_FailPawnCount>Invalid towing pawn count: expected {0} to {1}.</STF_FailPawnCount>
+  <STF_FailInvalidPawn>Towing pawn is invalid.</STF_FailInvalidPawn>
+  <STF_FailModeUnsupported>The example plugin does not support switching to {0}.</STF_FailModeUnsupported>
+  <STF_FailPackedMissingComp>The packed token is missing the small trailer comp.</STF_FailPackedMissingComp>
+  <STF_FailInventoryRejected>{0} could not carry the trailer token.</STF_FailInventoryRejected>
+  <STF_FailNoBuildingDef>This unit has no building def configured.</STF_FailNoBuildingDef>
+  <STF_FailBuildingMissingComp>The building def is missing the small trailer comp.</STF_FailBuildingMissingComp>
+  <STF_FailPlaceBuilding>Could not place the trailer building nearby.</STF_FailPlaceBuilding>
+  <STF_FailInvalidStateOrCaravan>Invalid state or caravan.</STF_FailInvalidStateOrCaravan>
+  <STF_FailNothingRestored>No manifest item could be restored.</STF_FailNothingRestored>
+  <STF_FailInvalidItem>Invalid item.</STF_FailInvalidItem>
+  <STF_FailLoadItem>Could not load that item.</STF_FailLoadItem>
+</LanguageData>
